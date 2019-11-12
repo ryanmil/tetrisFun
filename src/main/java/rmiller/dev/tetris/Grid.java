@@ -51,7 +51,7 @@ public class Grid {
 
     private void handleInput() {
         if (TetrisWindow.KEYBOARD.wasTyped(KeyEvent.VK_W)) {
-            System.out.println("W");
+            activeTetro.spin(grid);
         }
         if (TetrisWindow.KEYBOARD.wasTyped(KeyEvent.VK_S) || TetrisWindow.KEYBOARD.isPressed(KeyEvent.VK_S)) {
             activeTetro.move(new Vec2i(0, 1), grid);

@@ -16,7 +16,7 @@ public class Gamma extends Tetromino {
 
 
     @Override
-    public boolean spin() {
+    public boolean spin(Brick[][] grid) {
         return false;
     }
 

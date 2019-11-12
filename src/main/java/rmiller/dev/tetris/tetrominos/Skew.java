@@ -5,6 +5,8 @@ import rmiller.dev.tetris.Brick;
 
 public class Skew extends Tetromino{
 
+    private int rotation = 1;
+
     public Skew(Vec2i position) {
         super(position);
         super.bricks = new Brick[4];
@@ -16,8 +18,8 @@ public class Skew extends Tetromino{
 
 
     @Override
-    public boolean spin() {
-        return false;
+    public boolean spin(Brick[][] grid) {
+        return true;
     }
 
 }

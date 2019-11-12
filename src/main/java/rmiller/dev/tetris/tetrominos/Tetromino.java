@@ -44,6 +44,6 @@ public abstract class Tetromino {
         return true;
     }
 
-    public abstract boolean spin();
+    public abstract boolean spin(Brick[][] grid);
 
 }

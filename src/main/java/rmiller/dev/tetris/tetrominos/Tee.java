@@ -5,6 +5,8 @@ import rmiller.dev.tetris.Brick;
 
 public class Tee extends Tetromino {
 
+    int rotation = 1;
+
     public Tee(Vec2i position) {
         super(position);
         super.bricks = new Brick[4];
@@ -16,7 +18,34 @@ public class Tee extends Tetromino {
 
 
     @Override
-    public boolean spin() {
+    public boolean spin(Brick[][] grid) {
+        if (rotation == 1) {
+            if( bricks[1].canMove(new Vec2i(1, 1), grid) ) {
+                bricks[1].move(new Vec2i(1, 1), grid);
+                rotation++;
+                return true;
+            }
+        } else if (rotation == 2){
+            if( bricks[0].canMove(new Vec2i(-1, 1), grid)) {
+                bricks[0].move(new Vec2i(-1, 1), grid);
+                rotation++;
+                return true;
+            }
+        } else if (rotation == 3){
+            if( bricks[3].canMove(new Vec2i(-1, -1), grid)) {
+                bricks[3].move(new Vec2i(-1, -1), grid);
+                rotation++;
+                return true;
+            }
+        } else {
+            if( bricks[1].canMove(new Vec2i(1, -1), grid)) {
+                bricks[3].move(new Vec2i(1, 1), grid);
+                bricks[0].move(new Vec2i(1, -1), grid);
+                bricks[1].move(new Vec2i(-1, -1), grid);
+                rotation = 1;
+                return true;
+            }
+        }
         return false;
     }
 

@@ -17,43 +17,7 @@ public class Square extends Tetromino {
 
 
     @Override
-    public boolean spin() {
-        return false;
-    }
-
-    private boolean moveDown(Vec2i delta, Brick[][] grid) {
-        if (bricks[2].canMove(delta, grid) && bricks[3].canMove(delta, grid)) {
-            bricks[2].move(delta, grid);
-            bricks[3].move(delta, grid);
-            bricks[0].move(delta,grid);
-            bricks[1].move(delta, grid);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean moveRight(Vec2i delta, Brick[][] grid) {
-        if (bricks[1].canMove(delta, grid) && bricks[3].canMove(delta, grid)) {
-            bricks[1].move(delta, grid);
-            bricks[3].move(delta, grid);
-            bricks[2].move(delta,grid);
-            bricks[0].move(delta, grid);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean moveLeft(Vec2i delta, Brick[][] grid) {
-        if (bricks[0].canMove(delta, grid) && bricks[2].canMove(delta, grid)) {
-            bricks[0].move(delta, grid);
-            bricks[2].move(delta, grid);
-            bricks[1].move(delta,grid);
-            bricks[3].move(delta, grid);
-            return true;
-        } else {
-            return false;
-        }
+    public boolean spin(Brick[][] grid) {
+        return true;
     }
 }
